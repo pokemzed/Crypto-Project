@@ -1,0 +1,68 @@
+.InfoCoin{
+  width: calc(40% - 3em);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+//===buttons===
+.InfoCoin .buttons-container{
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.InfoCoin .buttons-container a{
+  text-decoration: none;
+  padding: 0.25em 1em;
+  background: var(--app-color);
+  border-radius: 5px;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+//===info-container===
+.InfoCoin .info-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.InfoCoin .info-container h2{
+  color: #5A5E6A;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+.InfoCoin .info-container h4{
+  color: #5A5E6A;
+  font-size: 14px;
+}
+.InfoCoin .info-container .info-row .buttons-row{
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+.InfoCoin .info-container .info-row .buttons-row a{
+  text-decoration: none;
+  padding: 0.5em 1.75em;
+  border-radius: 5px;
+  background: #232323;
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+
+
+
+
+@media (max-width: 991px){
+  .InfoCoin {
+    width: 100%;
+  }
+}

@@ -1,0 +1,54 @@
+.NftTable{
+
+}
+
+.NftTable .container-row{
+    width: 100%;
+    padding: 0.5em 1em;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+
+    .coin-info, .coin-stats{
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        .item-left{
+            text-align: left;
+        }
+        .item-center{
+            text-align: center;
+        }
+        .item-right{
+            text-align: right;
+        }
+        .item-col{
+            p{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.NftTable .container-row{
+
+    .coin-info{
+        width: 15%;
+        .item-col{
+            width: 5%;
+        }
+        .item-long{
+            width: 90%;
+        }
+    }
+    .coin-stats{
+        width: 85%;
+        justify-content: space-between;
+        .item-col{
+            width: 100%;
+        }
+    }
+}
