@@ -1,5 +1,6 @@
 .ExchangesTable{
   margin-top: 50px;
+  width: 100%;
 }
 
 .ExchangesTable .container-row{
@@ -67,4 +68,11 @@
   border-radius: 5px;
   background: #232323;
   margin-bottom: 10px;
+}
+
+//item-col image
+.ExchangesTable .item-col img{
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
 }

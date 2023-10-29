@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "@/6_shared/store/store";
 
 const initialState = {
-    path: '/'
+    path: typeof window !== "undefined" ? sessionStorage.getItem('pathPage') : '/'
 }
 
 export const changePathSlice = createSlice({
@@ -10,7 +10,9 @@ export const changePathSlice = createSlice({
     initialState,
     reducers: {
         changePath: (state, action) => {
-            state.path = action.payload
+            const path = action.payload
+            state.path = path
+            typeof window !== "undefined" ? sessionStorage.setItem('pathPage', path) : false
         }
     }
 })
