@@ -6,4 +6,5 @@ export const {
     useGetExchangesMarketsQuery,
     useGetExchangeQuery,
     useGetNftMarketsQuery,
+    useGetNftQuery
 } = coinsApi

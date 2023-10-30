@@ -252,10 +252,117 @@ export interface Image {
     large: string
 }
 
+
+//NFT MARKETS / NFT
 export interface INftMarkets {
     id: string
     contract_address: string
     name: string
     asset_platform_id: string
     symbol: string
+}
+
+export interface INftApi {
+    id: string
+    contract_address: string
+    asset_platform_id: string
+    name: string
+    symbol: string
+    image: Image
+    description: string
+    native_currency: string
+    native_currency_symbol: string
+    floor_price: FloorPrice
+    market_cap: MarketCap
+    volume_24h: Volume24h
+    floor_price_in_usd_24h_percentage_change: number
+    floor_price_24h_percentage_change: FloorPrice24hPercentageChange
+    market_cap_24h_percentage_change: MarketCap24hPercentageChange
+    volume_24h_percentage_change: Volume24hPercentageChange
+    number_of_unique_addresses: number
+    number_of_unique_addresses_24h_percentage_change: number
+    volume_in_usd_24h_percentage_change: number
+    total_supply: number
+    one_day_sales: number
+    one_day_sales_24h_percentage_change: number
+    one_day_average_sale_price: number
+    one_day_average_sale_price_24h_percentage_change: number
+    links: Links
+    coingecko_rank: number
+    floor_price_7d_percentage_change: FloorPrice7dPercentageChange
+    floor_price_14d_percentage_change: FloorPrice14dPercentageChange
+    floor_price_30d_percentage_change: FloorPrice30dPercentageChange
+    floor_price_60d_percentage_change: FloorPrice60dPercentageChange
+    floor_price_1y_percentage_change: FloorPrice1yPercentageChange
+    explorers: Explorer[]
+}
+
+export interface Image {
+    small: string
+}
+
+export interface FloorPrice {
+    native_currency: number
+    usd: number
+}
+
+export interface MarketCap {
+    native_currency: number
+    usd: number
+}
+
+export interface Volume24h {
+    native_currency: number
+    usd: number
+}
+
+export interface FloorPrice24hPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface MarketCap24hPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface Volume24hPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface Links {
+    home_page: string
+    twitter: string
+    discord: string
+}
+
+export interface FloorPrice7dPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface FloorPrice14dPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface FloorPrice30dPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface FloorPrice60dPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface FloorPrice1yPercentageChange {
+    usd: number
+    native_currency: number
+}
+
+export interface Explorer {
+    name: string
+    link: string
 }

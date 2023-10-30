@@ -5,10 +5,17 @@ import {
     COIN_API, EXCHANGE_API,
     GLOBAL_API_URL,
     MARKETS_API,
+    NFT_API,
     NFT_LIST_API,
-    TRENDING_COINS_API
 } from "@/6_shared/constants/api";
-import {ICoinApi, ICoinMarketsApi, IExchangeApi, IExchangesMarketsApi, INftMarkets} from "@/6_shared/types/api-types";
+import {
+    ICoinApi,
+    ICoinMarketsApi,
+    IExchangeApi,
+    IExchangesMarketsApi,
+    INftApi,
+    INftMarkets
+} from "@/6_shared/types/api-types";
 
 export const coinsApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl: GLOBAL_API_URL}),
@@ -32,6 +39,9 @@ export const coinsApi = createApi({
         }),
         getNftMarkets: build.query<INftMarkets[], number>({
             query: (page) => NFT_LIST_API(page, 25)
+        }),
+        getNft: build.query<INftApi, string>({
+            query: (id) => NFT_API(id)
         })
     })
 })

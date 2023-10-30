@@ -1,6 +1,5 @@
 'use client'
 import React from "react";
-import CoinsTable from "@/4_features/home-page/CoinsTable";
 import {Button} from "react-bootstrap";
 import {useGetNftMarketsQuery} from "@/6_shared/api";
 import NftTable from "@/4_features/nft-page/NftTable";
