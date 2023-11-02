@@ -25,3 +25,9 @@ export const NFT_API = (id: string) => `/nfts/${id}`
 
 //Поиск по coins, categories and markets listed
 export const SEARCH_API = (query: string) => `/search?query=${query}`
+
+//Получение всех деривативов биржи
+export const DERIVATIVES_API = (page: number, perPage: number) => `/derivatives/exchanges?per_page=${perPage}`
+
+//Получение дериватива биржи
+export const DERIVATIVE_EXCHANGE_API = (id: string) => `/derivatives/exchanges/${id}`

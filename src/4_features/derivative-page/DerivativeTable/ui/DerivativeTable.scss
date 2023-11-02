@@ -1,0 +1,78 @@
+.DerivativeTable{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.DerivativeTable .container-row{
+  width: 100%;
+  padding: 1em;
+  background: inherit;
+  cursor: pointer;
+  transition: ease-in-out .3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+  &:hover{
+    background: #232323;
+  }
+
+  .derivative-info{
+    width: 35%;
+    .item-col{
+      width: 30%;
+    }
+    .item-long{
+      width: 70%;
+    }
+  }
+  .derivative-stats{
+    width: 65%;
+    justify-content: space-between;
+    .item-col{
+      width: 35%;
+    }
+  }
+
+  //DERIVATIVE stats
+  .derivative-info, .derivative-stats{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    .item-left{
+      text-align: left;
+    }
+    .item-center{
+      text-align: center;
+    }
+    .item-right{
+      text-align: right;
+    }
+    .item-col{
+      label{
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 16.8px */
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//Label container
+.DerivativeTable .container-label{
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  background: #232323;
+  margin-bottom: 10px;
+}
+
+//item-col image
+.DerivativeTable .item-col img{
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+}

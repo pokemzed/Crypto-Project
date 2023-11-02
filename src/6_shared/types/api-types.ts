@@ -366,3 +366,32 @@ export interface Explorer {
     name: string
     link: string
 }
+
+
+// DERIVATIVES
+export interface IDerivatives {
+    name: string
+    id: string
+    open_interest_btc: number
+    trade_volume_24h_btc: string
+    number_of_perpetual_pairs: number
+    number_of_futures_pairs: number
+    image: string
+    year_established: number
+    country: any
+    description: string
+    url: string
+}
+
+export interface IDerivativeExchange {
+    name: string
+    open_interest_btc: number
+    trade_volume_24h_btc: string
+    number_of_perpetual_pairs: number
+    number_of_futures_pairs: number
+    image: string
+    year_established: number
+    country: any
+    description: string
+    url: string
+}

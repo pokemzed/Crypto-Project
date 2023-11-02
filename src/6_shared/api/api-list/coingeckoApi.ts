@@ -2,7 +2,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {HYDRATE} from "next-redux-wrapper";
 import {
     ALL_EXCHANGES_API,
-    COIN_API, EXCHANGE_API,
+    COIN_API, DERIVATIVE_EXCHANGE_API, DERIVATIVES_API, EXCHANGE_API,
     GLOBAL_API_URL,
     MARKETS_API,
     NFT_API,
@@ -10,7 +10,7 @@ import {
 } from "@/6_shared/constants/api";
 import {
     ICoinApi,
-    ICoinMarketsApi,
+    ICoinMarketsApi, IDerivativeExchange, IDerivatives,
     IExchangeApi,
     IExchangesMarketsApi,
     INftApi,
@@ -42,6 +42,12 @@ export const coinsApi = createApi({
         }),
         getNft: build.query<INftApi, string>({
             query: (id) => NFT_API(id)
+        }),
+        getDerivatives: build.query <IDerivatives[], number> ({
+            query: (page) => DERIVATIVES_API(page, 25)
+        }),
+        getDerivativeExchange: build.query<IDerivativeExchange, string>({
+            query: (id) => DERIVATIVE_EXCHANGE_API(id)
         })
     })
 })
