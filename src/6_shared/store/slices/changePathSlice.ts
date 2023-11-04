@@ -17,5 +17,5 @@ export const changePathSlice = createSlice({
     }
 })
 export const {changePath} = changePathSlice.actions
-export const selectPath = (state: RootState) => state.counter.path
+// export const selectPath = (state: RootState) => state.counter.path
 export default changePathSlice.reducer

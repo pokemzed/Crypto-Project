@@ -1,10 +1,10 @@
 import {configureStore} from "@reduxjs/toolkit";
-import changePath from './slices/changePathSlice'
 import {coinsApi} from "@/6_shared/api/api-list/coingeckoApi";
+import userReducer from '@/6_shared/store/slices/createUserSlice'
 
 export const store = configureStore({
     reducer: {
-        counter: changePath,
+        createUser: userReducer,
         [coinsApi.reducerPath]: coinsApi.reducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(coinsApi.middleware)

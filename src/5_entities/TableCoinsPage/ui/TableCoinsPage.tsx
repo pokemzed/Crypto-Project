@@ -3,13 +3,14 @@ import CoinsTable from "@/4_features/home-page/CoinsTable";
 import {useGetCoinsMarketsQuery} from "@/6_shared/api";
 import EmptyLoader from "next/dist/build/webpack/loaders/empty-loader";
 import {Button} from "react-bootstrap";
+import Loader from "@/4_features/Loader";
 
 export const TableCoinsPage: React.FC = () => {
     const [page, setPage] = React.useState<number>(1)
     const {data, isLoading, isFetching} = useGetCoinsMarketsQuery(page)
     return (
         <div className={"TableCoinsPage"}>
-            {isLoading && <h3>Loading</h3>}
+            {isLoading && <Loader/>}
 
             {data && (
                 <div className={"table-container"}>
