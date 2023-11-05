@@ -4,7 +4,7 @@ import {changePathSlice} from "@/6_shared/store/slices/changePathSlice";
 const initialState: {email: null | string, uId: null | string, token: null | string} = {
     email: null,
     uId: null,
-    token: null
+    token: localStorage.getItem('token')
 }
 
 const createUserSlice = createSlice({

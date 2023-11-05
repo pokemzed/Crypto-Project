@@ -1,20 +1,19 @@
 'use client'
 import React from "react";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth} from "@/6_shared/firebase/config";
+import Link from "next/link";
+import {createUser} from "@/6_shared/store/slices/createUserSlice";
 import {useAppDispatch} from "@/6_shared/hooks/hooks";
 import {useRouter} from "next/navigation";
-import {signInWithEmailAndPassword} from "firebase/auth";
-import {auth} from "@/6_shared/firebase/config";
-import {createUser} from "@/6_shared/store/slices/createUserSlice";
-import {Container} from "react-bootstrap";
-import Link from "next/link";
 
-export const LoginForm: React.FC = () => {
+export const RegForm: React.FC = () => {
     const dispatch = useAppDispatch()
     const router = useRouter()
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
-    const handleLogin = () => {
-        signInWithEmailAndPassword(auth, email, password)
+    const handleReg = () => {
+        createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 dispatch(createUser({
                     email: userCredential.user.email,
@@ -30,16 +29,16 @@ export const LoginForm: React.FC = () => {
             })
     }
     return (
-        <div className={"LoginForm"}>
+        <div className={"RegForm"}>
             <div className={"title"}>
-                <h1>Login</h1>
-                <Link href={'/registration'}>Registration</Link>
+                <h1>Registration</h1>
+                <Link href={'/login'}>Login</Link>
             </div>
             <div className={"inputs-container"}>
                 <input type="email" placeholder={"email"} onChange={(e) => setEmail(e.target.value)}/>
                 <input type="password" placeholder={"password"} onChange={(e) => setPassword(e.target.value)}/>
             </div>
-            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleReg}>Registration</button>
         </div>
     )
 }

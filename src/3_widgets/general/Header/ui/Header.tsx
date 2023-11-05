@@ -1,8 +1,20 @@
+'use client'
 import React from "react";
-import {Container, Form} from 'react-bootstrap'
+import {Button, Container, Form} from 'react-bootstrap'
 import Link from "next/link";
+import {IsAuth} from "@/6_shared/hooks/isAuth";
+import {useAppDispatch} from "@/6_shared/hooks/hooks";
+import {removeUser} from "@/6_shared/store/slices/createUserSlice";
 
 export const Header: React.FC = () => {
+    const dispatch = useAppDispatch()
+    const auth = IsAuth().isAuth
+
+    const handleLogout = () => {
+        dispatch(removeUser())
+        localStorage.removeItem('token')
+    }
+
     return (
         <Container className={"Header"}>
             <div className={'left-container'}>
@@ -10,7 +22,7 @@ export const Header: React.FC = () => {
                     <img src="/images/elements/logo.svg" alt="logo-header"/>
                 </Link>
                 <nav>
-                    <Link href={'/cryptocurrencies'}>Cryptocurrencies</Link>
+                    <Link href={'/'}>Cryptocurrencies</Link>
                     <Link href={'/exchanges'}>Exchanges</Link>
                     <Link href={'/nft'}>NFT</Link>
                     <Link href={'/blog'}>Learn Crypto</Link>
@@ -18,11 +30,20 @@ export const Header: React.FC = () => {
                 </nav>
             </div>
             <div className={'right-container'}>
-                <div className={'auth-container'}>
-                    <Link className={"sign-in"} href={'/'}>Login</Link>
-                    <Link className={"sign-up"} href={'/'}>Sign Up</Link>
-                </div>
+                {
+                    !auth && (
+                        <div className={'auth-container'}>
+                            <Link className={"sign-in"} href={'/login'}>Login</Link>
+                            <Link className={"sign-up"} href={'/registration'}>Sign Up</Link>
+                        </div>
+                    )
+                }
                 <Form.Control placeholder={"search"}/>
+                {
+                    auth && (
+                        <Button onClick={handleLogout} className="btn btn-danger">Log out</Button>
+                    )
+                }
             </div>
         </Container>
     )
