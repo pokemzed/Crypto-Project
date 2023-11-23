@@ -10,6 +10,14 @@ export const validationEmail = (value: string) => {
 
 export const validationPassword = (value: string) => {
     if(!value){
-        return 'Required'
+        return 'Enter password'
+    }
+}
+
+export const passwordRepeatValidation = (password: string, repeatPassword: string) => {
+    if(password !== repeatPassword){
+        return 'Passwords mismatch'
+    } else if(!repeatPassword){
+        return 'Repeat password'
     }
 }

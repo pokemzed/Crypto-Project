@@ -2,7 +2,7 @@
 import React from "react";
 import {Form} from "react-bootstrap";
 import {Field, Formik} from "formik";
-import {validationEmail, validationPassword} from "@/6_shared/constants/validationForm";
+import {passwordRepeatValidation, validationEmail, validationPassword} from "@/6_shared/constants/validationForm";
 import {useRouter} from "next/navigation";
 import {useAppDispatch} from "@/6_shared/hooks/hooks";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
@@ -16,6 +16,7 @@ export const FormReg: React.FC = () => {
     const initialValuesForm = {
         email: '',
         password: '',
+        repeatPassword: ''
     }
 
     const handleSubmitForm = (values: { email: string, password: string }) => {
@@ -40,7 +41,7 @@ export const FormReg: React.FC = () => {
         <div className={"FormReg"}>
             <Formik initialValues={initialValuesForm} onSubmit={handleSubmitForm}>
                 {
-                    ({errors, touched, handleSubmit}) => (
+                    ({errors, touched, handleSubmit, values}) => (
                         <Form className={"form"} onSubmit={handleSubmit}>
                             <div className={"input email"}>
                                 <label
@@ -77,6 +78,25 @@ export const FormReg: React.FC = () => {
                                 {
                                     errors.password && touched.password && (
                                         <div className={"error-under-field"}>{errors.password}</div>
+                                    )
+                                }
+                            </div>
+                            <div className={"input password"}>
+                                <label
+                                    className={`label-form${errors.password && touched.password ? ' error-label' : ''}`}
+                                >
+                                    Repeat password
+                                </label>
+                                <Field
+                                    className={`${errors.repeatPassword && touched.repeatPassword ? ' error-email' : ''}`}
+                                    type={'password'}
+                                    name={'repeatPassword'}
+                                    validate={(value: string) => passwordRepeatValidation(value, values.password)}
+                                    placeholder={"Repeat password"}
+                                />
+                                {
+                                    errors.repeatPassword && touched.repeatPassword && (
+                                        <div className={"error-under-field"}>{errors.repeatPassword}</div>
                                     )
                                 }
                             </div>
