@@ -1,12 +1,12 @@
 import React from "react";
 import {Container} from "react-bootstrap";
-import LoginForm from "@/4_features/auth/LoginForm";
+import AuthLoginPage from "@/5_entities/AuthLoginPage";
 
 const LoginPage: React.FC = () => {
 
     return (
         <Container className={"LoginPage"}>
-            <LoginForm/>
+            <AuthLoginPage/>
         </Container>
     )
 }

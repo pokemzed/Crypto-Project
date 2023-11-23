@@ -1,0 +1,78 @@
+.FormReg .form{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+//input style
+.FormReg .form .input{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  //style label
+  .label-form{
+    color: #b0b0b0;
+    font-size: 14px;
+  }
+  .label-form.error-label{
+    color: #FF62F0;
+  }
+
+  //style input
+  input{
+    border-radius: 5px;
+    border: 1px solid #515151;
+    background: none;
+    padding: 1em;
+    outline: none;
+    transition: all 0.3s;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+  input.error-email{
+    border: 1px solid #FF62F0;
+  }
+  input:focus{
+    border: 1px solid #fff;
+  }
+  input::placeholder{
+    font-size: 14px;
+    color: #b0b0b0;
+  }
+
+  //style error under field
+  .error-under-field{
+    color: #FF62F0;
+    font-size: 12px;
+
+  }
+}
+
+//button style
+.FormReg .form button{
+  width: 100%;
+  border-radius: 5px;
+  background: #326CF4;
+  border: none;
+  padding: 1em;
+  margin-top: 0.5em;
+  outline: none;
+  transition: all 0.3s;
+
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+@media(max-width: 768px){
+  .FormReg .form{
+    width: 100%;
+  }
+}
