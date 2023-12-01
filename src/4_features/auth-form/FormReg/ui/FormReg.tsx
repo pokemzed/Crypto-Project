@@ -6,12 +6,13 @@ import {passwordRepeatValidation, validationEmail, validationPassword} from "@/6
 import {useRouter} from "next/navigation";
 import {useAppDispatch} from "@/6_shared/hooks/hooks";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import {auth} from "@/6_shared/firebase/config";
 import {createUser} from "@/6_shared/store/slices/createUserSlice";
+import {auth} from "@/6_shared/firebase/config";
 
 export const FormReg: React.FC = () => {
     const router = useRouter()
     const dispatch = useAppDispatch()
+
 
     const initialValuesForm = {
         email: '',
@@ -22,13 +23,15 @@ export const FormReg: React.FC = () => {
     const handleSubmitForm = (values: { email: string, password: string }) => {
         createUserWithEmailAndPassword(auth, values.email, values.password)
             .then((userCredential) => {
-                dispatch(createUser({
-                    email: userCredential.user.email,
-                    uId: userCredential.user.uid,
-                    token: userCredential.user.refreshToken,
-                }))
-                localStorage.setItem("token", userCredential.user.refreshToken)
-                router.push('/')
+                userCredential.user.getIdToken().then(token => {
+                    dispatch(createUser({
+                        email: userCredential.user.email,
+                        token: token,
+                    }))
+                    router.push('/')
+                })
+                    .catch(err => console.error(err))
+
             })
             .catch((error) => {
                 const errorCode = error.code

@@ -5,6 +5,8 @@ import { Nunito_Sans } from 'next/font/google'
 import Header from "@/3_widgets/general/Header";
 import {ProviderRedux} from "@/6_shared/store/provider";
 import React from "react";
+import {persistStore} from "redux-persist";
+import {store} from "@/6_shared/store/store";
 
 const nunitoSans = Nunito_Sans({ subsets: ['latin', 'cyrillic'] })
 
@@ -18,6 +20,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+    const persist = persistStore(store)
   return (
     <html lang="en">
       <body className={nunitoSans.className}>

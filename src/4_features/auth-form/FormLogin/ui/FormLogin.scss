@@ -20,8 +20,25 @@
     color: #FF62F0;
   }
 
+  .password-input{
+    position: relative;
+    img{
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      z-index: 5;
+      cursor: pointer;
+      transition: opacity .3s;
+      &:hover{
+        opacity: 50%;
+      }
+    }
+  }
+
   //style input
   input{
+    width: 100%;
+    position: relative;
     border-radius: 5px;
     border: 1px solid #515151;
     background: none;

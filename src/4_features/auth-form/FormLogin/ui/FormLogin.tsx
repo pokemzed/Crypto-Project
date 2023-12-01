@@ -12,27 +12,28 @@ import {useRouter} from "next/navigation";
 export const FormLogin: React.FC = () => {
     const router = useRouter()
     const dispatch = useAppDispatch()
+    const [show, setShow] = React.useState<boolean>(false)
 
     const initialValuesForm = {
         email: '',
         password: '',
     }
 
-    const handleSubmitForm = (values: { email: string, password: string }) => {
+    const handleSubmitForm = (values: { email: string, password: string }, onSubmitProps: any) => {
         signInWithEmailAndPassword(auth, values.email, values.password)
             .then((userCredential) => {
-                dispatch(createUser({
-                    email: userCredential.user.email,
-                    uId: userCredential.user.uid,
-                    token: userCredential.user.refreshToken,
-                }))
-                localStorage.setItem("token", userCredential.user.refreshToken)
-                router.push('/')
+                userCredential.user.getIdToken().then(token => {
+                    dispatch(createUser({
+                        email: userCredential.user.email,
+                        token: token,
+                    }))
+                    router.push('/')
+                })
             })
             .catch((error) => {
                 const errorCode = error.code
                 const errorMessage = error.message
-                console.log(errorMessage, errorCode)
+                onSubmitProps.setErrors({email: 'Invalid password or email', password: 'Invalid password or email'})
             })
     }
 
@@ -67,13 +68,17 @@ export const FormLogin: React.FC = () => {
                                 >
                                     Password
                                 </label>
-                                <Field
-                                    className={`${errors.password && touched.password ? ' error-email' : ''}`}
-                                    type={'password'}
-                                    name={'password'}
-                                    validate={validationPassword}
-                                    placeholder={"Password"}
-                                />
+                                <div className={"password-input"}>
+                                    <Field
+                                        className={`${errors.password && touched.password ? ' error-email' : ''}`}
+                                        type={`${show ? 'text' : 'password'}`}
+                                        name={'password'}
+                                        validate={validationPassword}
+                                        placeholder={"Password"}
+                                    />
+                                    <img onClick={() => setShow(state => !state)} src={`${show ? '/icons/dont-show-password.svg' : '/icons/show-password.svg'}`}
+                                         alt="show-password"/>
+                                </div>
                                 {
                                     errors.password && touched.password && (
                                         <div className={"error-under-field"}>{errors.password}</div>

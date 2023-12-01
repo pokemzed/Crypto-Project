@@ -12,7 +12,6 @@ export const Header: React.FC = () => {
 
     const handleLogout = () => {
         dispatch(removeUser())
-        localStorage.removeItem('token')
     }
 
     return (
