@@ -1,4 +1,4 @@
-import {coinsApi} from "@/6_shared/api/api-list/coingeckoApi";
+import { coinsApi } from '@/6_shared/api/api-list/coingeckoApi'
 
 export const {
     useGetCoinsMarketsQuery,
@@ -8,5 +8,5 @@ export const {
     useGetNftMarketsQuery,
     useGetNftQuery,
     useGetDerivativesQuery,
-    useGetDerivativeExchangeQuery
+    useGetDerivativeExchangeQuery,
 } = coinsApi
