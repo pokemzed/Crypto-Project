@@ -1,22 +1,22 @@
 'use client'
-import React from "react";
-import {useGetExchangesMarketsQuery} from "@/6_shared/api";
-import CoinsTable from "@/4_features/home-page/CoinsTable";
-import {Button} from "react-bootstrap";
-import ExchangesTable from "@/4_features/exchanges-page/ExchangesTable";
-import Loader from "@/4_features/Loader";
+import React from 'react'
+import { useGetExchangesMarketsQuery } from '@/6_shared/api'
+import CoinsTable from '../../../4_features/modules/tables/CoinsTable'
+import { Button } from 'react-bootstrap'
+import ExchangesTable from '@/4_features/exchanges-page/ExchangesTable'
+import Loader from '../../../6_shared/ui/Loader'
 
 export const TableExchangesPage: React.FC = () => {
     const [page, setPage] = React.useState<number>(1)
-    const {data, isLoading, isFetching} = useGetExchangesMarketsQuery(page)
+    const { data, isLoading, isFetching } = useGetExchangesMarketsQuery(page)
     return (
-        <div className={"TableExchangesPage"}>
-            {isLoading && <Loader/>}
+        <div className={'TableExchangesPage'}>
+            {isLoading && <Loader />}
 
             {data && (
-                <div className={"table-container"}>
-                    <ExchangesTable exchanges={data}/>
-                    <div className={"pagination-container"}>
+                <div className={'table-container'}>
+                    <ExchangesTable exchanges={data} />
+                    <div className={'pagination-container'}>
                         <Button
                             onClick={() => setPage(page - 1)}
                             disabled={page == 1 || isFetching}

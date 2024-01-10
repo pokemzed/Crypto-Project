@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'react-bootstrap'
 import { useRouter } from 'next/navigation'
-import { useUserAuth } from '@/6_shared/hooks/useUserAuth'
+import { useUserAuth } from '@/6_shared/helpers/hooks/useUserAuth'
 
 enum EShowProfileSection {
     PROFILE_ABOUT = 'about',

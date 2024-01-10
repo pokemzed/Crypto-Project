@@ -1,11 +1,11 @@
-import React from "react";
-import {Container} from "react-bootstrap";
-import AuthRegPage from "@/5_entities/AuthRegPage";
+import React from 'react'
+import { Container } from 'react-bootstrap'
+import RegistrationAuth from '../../3_widgets/modules/auth/RegistrationAuth'
 
 const RegistrationPage: React.FC = () => {
     return (
-        <Container className={"RegistrationPage"}>
-            <AuthRegPage/>
+        <Container className={'RegistrationPage'}>
+            <RegistrationAuth />
         </Container>
     )
 }
