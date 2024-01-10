@@ -1,0 +1,71 @@
+.NftsTable{
+  margin-top: 50px;
+  width: 100%;
+}
+
+.NftsTable .container-row{
+  width: 100%;
+  padding: 1em;
+  background: inherit;
+  cursor: pointer;
+  transition: ease-in-out .3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+  &:hover{
+    background: #232323;
+  }
+
+  .nft-info{
+    width: 35%;
+    .item-col{
+      width: 5%;
+    }
+    .item-long{
+      width: 60%;
+    }
+  }
+  .nft-stats{
+    width: 65%;
+    justify-content: space-between;
+    .item-col{
+      width: 50%;
+    }
+  }
+
+  //Coin stats
+  .nft-info, .nft-stats{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    .item-left{
+      text-align: left;
+    }
+    .item-center{
+      text-align: center;
+    }
+    .item-right{
+      text-align: right;
+    }
+    .item-col{
+      label{
+        color: #FFF;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 16.8px */
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//Label container
+.NftsTable .container-label{
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  background: #232323;
+  margin-bottom: 10px;
+}

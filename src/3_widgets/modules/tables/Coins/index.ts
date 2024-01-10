@@ -1,3 +1,3 @@
-import { Coins } from '@/3_widgets/modules/tables/Coins/ui/Coins'
+import { Coins as CoinsWidget } from '@/3_widgets/modules/tables/Coins/ui/Coins'
 import './ui/Coins.scss'
-export default Coins
+export default CoinsWidget
