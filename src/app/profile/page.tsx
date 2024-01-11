@@ -1,6 +1,8 @@
 import React from 'react'
 import { Metadata } from 'next'
 import ProfileNavigation from '@/5_entities/ProfileNavigation'
+import { Container } from 'react-bootstrap'
+import ProfileNavbar from '@/3_widgets/modules/profile/ProfileNavbar'
 
 export const metadata: Metadata = {
     title: 'User Profile',
@@ -8,6 +10,10 @@ export const metadata: Metadata = {
 }
 
 const Profile: React.FC = () => {
-    return <ProfileNavigation />
+    return (
+        <Container>
+            <ProfileNavbar />
+        </Container>
+    )
 }
 export default Profile
