@@ -15,6 +15,7 @@ export const ProfileNavbar: React.FC = () => {
     const [showCategory, setShowCategory] = useState(
         EProfileCategory.ABOUT_CATEGORY
     )
+    // for comit
     return (
         <div className={'ProfileNavbar'}>
             <nav className={'navbar-container'}>
